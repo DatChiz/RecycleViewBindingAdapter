@@ -48,16 +48,14 @@ public class User extends BaseObservable {
         notifyPropertyChanged(BR.age);
     }
 
+
     public void setResId(int resId) {
         this.resId = resId;
+        notifyPropertyChanged(BR.resId);
     }
 
+    @Bindable
     public int getResId() {
         return resId;
-    }
-
-    @BindingAdapter("android:textColor")
-    public static void setColorResource(TextView textView, int resource){
-        textView.setTextColor(resource);
     }
 }

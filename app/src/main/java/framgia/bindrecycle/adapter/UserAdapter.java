@@ -42,6 +42,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         return mUsers.size();
     }
 
+    public void setUsers(List<User> users){
+        mUsers = users;
+        notifyDataSetChanged();
+    }
+
     public class UserViewHolder extends RecyclerView.ViewHolder {
         private ItemRowBinding binding;
 
