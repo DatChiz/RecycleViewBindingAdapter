@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="framgia.trainingmvp.srceen.main.MainViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="framgia.trainingmvp.srceen.main.MainActivity">
+
+        <EditText
+            android:id="@+id/edtTitle"
+            android:text="@={viewModel.inputTitle}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edtDer"
+            android:text="@={viewModel.inputDescription}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:onClick="@{()-> viewModel.onAddTask()}"
+                android:layout_weight="1"
+                android:id="@+id/btnAdd"
+                android:text="@string/input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listTask"
+            bind:adapter="@{viewModel.adapter}"
+            bind:layoutManager="@{viewModel.layoutManager}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</layout>
+
